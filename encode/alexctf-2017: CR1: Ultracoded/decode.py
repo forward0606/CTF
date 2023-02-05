@@ -1,6 +1,6 @@
 """
 ciphertext 中有一堆 ZERO 與 ONE 先處理成 0 和 1 
-每 7 個為一組，轉成 ascii
+每 8 個為一組，轉成 ascii
 """
 import base64
 import morse_talk as mtalk
