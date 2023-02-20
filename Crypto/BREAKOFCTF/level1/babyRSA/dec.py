@@ -1,5 +1,5 @@
 from Crypto.Util.number import inverse
-
+from Crypto.PublicKey import RSA
 import libnum
 
 def rsa_enc(m, e, n):
@@ -9,16 +9,30 @@ def rsa_dec(c, d, n):
     return pow(c, d, n)
 def find_d(e, r):
     return inverse(e, r)
-N = "MDwwDQYJKoZIhvcNAQEBBQADKwAwKAIhAL47hb4jkhf8YudWOUZX8SxhDyh+iBvJ"
-e = "NtKeXXVoUxV1AgMBAAE="
 
-N = libnum.s2n(N)
-e = libnum.s2n(e)
 
-print(N)
-print(e)
-# N = 4046824612280609136079109889224036489320328588763504310623330768489528500682447720580249353065253644496160423663896355238842139765732410373394742246536778
-# e = 447894734474683715068513991120300263598842791229
+f = open("pub.pem", "r")
+key = RSA.importKey(f.read())
 
-num = [2, 37, 47, 149, 769, 3593, 2826278661379866748539711437889403297510564904522641028572570175159495807544414727724017252868654376828548718887653132526900590872473302417147]
+print(key.n)
+print(key.e)
+
+n = 86044608266042558038553786299703811809507347936888618532703612396944160396661
+e = 65537
+
+p = 270613060120468613971049355250995010949
+q = 317961772531370599800029965079161987889
+
+r = (p-1) * (q-1)
+
+d = find_d(e, r)
+
+key = RSA.construct((n, e, d))
+contents = ""
+with open("flag.enc", 'rb') as f:
+    contents = f.read()
+
+
+m = key.decrypt(contents)
+print(m)
 
