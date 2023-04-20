@@ -12,3 +12,4 @@
 - https://github.com/forward0606/CTF/tree/main/Web/SQLinjection/UNION%20attack%2C%20retrieving%20multiple%20values%20in%20a%20single%20column
 - https://github.com/forward0606/CTF/tree/main/Web/SQLinjection/querying-database-version-oracle
 - https://github.com/forward0606/CTF/tree/main/Web/SQLinjection/Blind%20SQL%20injection%20with%20conditional%20responses
+- https://github.com/forward0606/CTF/tree/main/Web/SQLinjection/querying-database-version-mysql-microsoft
