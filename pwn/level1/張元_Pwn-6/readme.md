@@ -14,3 +14,5 @@ V
 輸入成功後會顯示 `Hacker can complete 1000 math problems in 60s, prove yourself.`，然後就寫的 python 算一下答案，算完後就拿到 shell 了
 
 ![](https://i.imgur.com/e1W561C.png)
+
+
