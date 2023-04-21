@@ -13,3 +13,12 @@
 - https://github.com/forward0606/CTF/tree/main/Web/SQLinjection/querying-database-version-oracle
 - https://github.com/forward0606/CTF/tree/main/Web/SQLinjection/Blind%20SQL%20injection%20with%20conditional%20responses
 - https://github.com/forward0606/CTF/tree/main/Web/SQLinjection/querying-database-version-mysql-microsoft
+
+## Note
+
+### ORACLE
+Oracle 中 SELECT 後面一定要有 FROM，為了讓 FROM 後面一定有東西接，所以有 dual table，基本上 dual 中保證只有一筆資料 
+找版本：`SELECT banner, NULL FROM v$version`
+
+### MySQL
+找版本：`SELECT VERSION()`
