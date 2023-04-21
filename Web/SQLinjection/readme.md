@@ -1,4 +1,5 @@
 實作步驟：
+
 0. 用 ' 測試是否有 sql injection
 1. 找有幾個 parameter
 2. 找有沒有字串型態
