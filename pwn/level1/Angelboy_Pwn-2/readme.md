@@ -22,3 +22,5 @@ return_add 0x8
 
 ### 問題排解
 在本地端測試， read 一定會吃滿 50 個 bytes 超過 50 的才會變成 get 的輸入，但 server 端則不是，換行後就變成 get 吃了
+
+shell code: https://www.exploit-db.com/shellcodes
